@@ -20,11 +20,7 @@ import java.text.SimpleDateFormat;
  * Created by rahall4405 on 3/13/16.
  */
 public class Utilities {
-    /*public static final int SERIE_A = 357;
-    public static final int PREMIER_LEGAUE = 354;
-    public static final int CHAMPIONS_LEAGUE = 362;
-    public static final int PRIMERA_DIVISION = 358;
-    public static final int BUNDESLIGA = 351;*/
+
     public static final int SERIE_A = 401;
     public static final int PREMIER_LEGAUE = 398;
     public static final int PRIMERA_DIVISION = 399;
@@ -154,12 +150,6 @@ public class Utilities {
                 })
 
                 .show();
-    }
-    public static boolean isTablet(Context context
-    ) {
-        return ( context.getResources().getConfiguration().screenLayout
-                & Configuration.SCREENLAYOUT_SIZE_MASK)
-                >= Configuration.SCREENLAYOUT_SIZE_LARGE;
     }
 
     public static boolean isNetworkAvailable(Context context) {

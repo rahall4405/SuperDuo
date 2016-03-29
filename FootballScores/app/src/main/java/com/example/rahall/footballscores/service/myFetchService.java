@@ -48,10 +48,12 @@ public class myFetchService extends IntentService
         data_ok = true;
         getData("n3");
         getData("p3");
-        Intent messageIntent = new Intent(MainActivity.DONE_LOADING);
-        messageIntent.putExtra(MainActivity.DONE_KEY, MainActivity.DONE_LOADING);
-        LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(messageIntent);
-        updateWidgets();
+        if (data_ok) {
+            Intent messageIntent = new Intent(MainActivity.DONE_LOADING);
+            messageIntent.putExtra(MainActivity.DONE_KEY, MainActivity.DONE_LOADING);
+            LocalBroadcastManager.getInstance(getApplicationContext()).sendBroadcast(messageIntent);
+            updateWidgets();
+        }
         return;
     }
 

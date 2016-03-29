@@ -26,11 +26,9 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Configuration config = FootballApplication.getAppContext().getResources().getConfiguration();
         Date fragmentDate;
-        //if (!(config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL)) {
+
             fragmentDate = new Date(System.currentTimeMillis() + ((position - 2) * 86400000));
-        //} else {
-            //fragmentDate = new Date(System.currentTimeMillis() + ((2 - position) * 86400000));
-        //}
+
         SimpleDateFormat mformat = new SimpleDateFormat("yyyy-MM-dd");
 
 

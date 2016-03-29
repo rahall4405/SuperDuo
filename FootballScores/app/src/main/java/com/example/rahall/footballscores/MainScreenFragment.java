@@ -15,15 +15,14 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
+
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.rahall.footballscores.data.DatabaseContract;
 import com.example.rahall.footballscores.service.myFetchService;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 
 public class MainScreenFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>,Updatable {
@@ -34,14 +33,14 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
     ListView mScoreList;
     public int mPosition;
     private BroadcastReceiver loadDoneReceiver;
+    private Context mContext;
 
     public MainScreenFragment() {
+        mContext = getContext();
+
     }
 
-    private void update_scores() {
-        Intent service_start = new Intent(getActivity(), myFetchService.class);
-        getActivity().startService(service_start);
-    }
+
 
     public void setFragmentDate(String date, int position) {
         fragmentdate[0] = date;
@@ -111,23 +110,14 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        //Log.v(FetchScoreTask.LOG_TAG,"loader finished");
-        //cursor.moveToFirst();
-        /*
-        while (!cursor.isAfterLast())
-        {
-            Log.v(FetchScoreTask.LOG_TAG,cursor.getString(1));
-            cursor.moveToNext();
-        }
-        */
+
         mAdapter.swapCursor(cursor);
         if (cursor != null) {
             int i = 0;
 
             cursor.moveToFirst();
             if (MainActivity.selectedTabAdapterPosition != ListView.INVALID_POSITION) {
-               // mScoreList.smoothScrollToPosition(MainActivity.selectedTabAdapterPosition + 1);
-               // mScoreList.setSelection(MainActivity.selectedTabAdapterPosition);
+
 
                 while (!cursor.isAfterLast()) {
                     i++;
@@ -180,7 +170,7 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
         public void onReceive(Context context, Intent intent) {
             if (intent.getStringExtra(MainActivity.DONE_KEY) != null) {
                 if (myFetchService.data_ok == false) {
-                    Utilities.showAlertDialog(getString(R.string.network_error).toString(), getActivity());
+                    Utilities.showAlertDialog(getString(R.string.network_error).toString(), mContext);
                 } else {
                     if (intent.getStringExtra(MainActivity.DONE_KEY).equals(MainActivity.DONE_LOADING)) {
                         try {
