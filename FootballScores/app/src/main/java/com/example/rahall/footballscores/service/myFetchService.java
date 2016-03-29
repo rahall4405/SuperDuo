@@ -32,7 +32,7 @@ import com.example.rahall.footballscores.R;
  * Created by yehya khaled on 3/2/2015.
  */
 public class myFetchService extends IntentService
-{
+{   public static boolean data_ok;
     public static final String LOG_TAG = "myFetchService";
     public myFetchService()
     {
@@ -45,6 +45,7 @@ public class myFetchService extends IntentService
     @Override
     protected void onHandleIntent(Intent intent)
     {
+        data_ok = true;
         getData("n3");
         getData("p3");
         Intent messageIntent = new Intent(MainActivity.DONE_LOADING);
@@ -99,6 +100,7 @@ public class myFetchService extends IntentService
         }
         catch (Exception e)
         {
+            data_ok= false;
             Log.e(LOG_TAG,"Exception here" + e.getMessage());
         }
         finally {
@@ -113,6 +115,7 @@ public class myFetchService extends IntentService
                 }
                 catch (IOException e)
                 {
+                    data_ok= false;
                     Log.e(LOG_TAG,"Error Closing Stream");
                 }
             }
@@ -135,12 +138,14 @@ public class myFetchService extends IntentService
                 processJSONdata(JSON_data, getApplicationContext(), true);
             } else {
                 //Could not Connect
+                data_ok= false;
                 Log.d(LOG_TAG, "Could not connect to server.");
             }
         }
         catch(Exception e)
         {
             Log.e(LOG_TAG,e.getMessage());
+            data_ok = false;
         }
     }
     private void processJSONdata (String JSONdata,Context mContext, boolean isReal)
@@ -148,6 +153,8 @@ public class myFetchService extends IntentService
         //JSON data
         // This set of league codes is for the 2015/2016 season. In fall of 2016, they will need to
         // be updated. Feel free to use the codes
+
+        //more leagues were added for data to be available.
         final String BUNDESLIGA1 = "394";
         final String BUNDESLIGA2 = "395";
         final String LIGUE1 = "396";
@@ -259,6 +266,7 @@ public class myFetchService extends IntentService
                     }
                     catch (Exception e)
                     {
+                        data_ok = false;
                         Log.d(LOG_TAG, "error here!");
                         Log.e(LOG_TAG,e.getMessage());
                     }
@@ -290,15 +298,7 @@ public class myFetchService extends IntentService
 
 
 
-                    //log spam
 
-                    //Log.v(LOG_TAG,match_id);
-                    //Log.v(LOG_TAG,mDate);
-                    //Log.v(LOG_TAG,mTime);
-                    //Log.v(LOG_TAG,Home);
-                    //Log.v(LOG_TAG,Away);
-                    //Log.v(LOG_TAG,Home_goals);
-                    //Log.v(LOG_TAG,Away_goals);
 
                     values.add(match_values);
                 }
@@ -313,13 +313,17 @@ public class myFetchService extends IntentService
         }
         catch (JSONException e)
         {
+            data_ok = false;
             Log.e(LOG_TAG,e.getMessage());
         } catch (Exception e) {
             Log.e(LOG_TAG,e.getMessage());
+            data_ok = false;
         }
 
     }
     // get the Logo if we do not have it.  If we can't store it we will return a url.
+    // This will store the logo locally. If there is an error the user will just see a blank logo.
+    // I do not inform the user of errors.  In a few passes all the available logos will be available.
     private String getLogoLocation (String teamUrl, String teamName) {
         String fileName;
         String crestUrlString = "";

@@ -179,16 +179,20 @@ public class MainScreenFragment extends Fragment implements LoaderManager.Loader
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getStringExtra(MainActivity.DONE_KEY) != null) {
-                if (intent.getStringExtra(MainActivity.DONE_KEY).equals(MainActivity.DONE_LOADING))
-                    try {
+                if (myFetchService.data_ok == false) {
+                    Utilities.showAlertDialog(getString(R.string.network_error).toString(), getActivity());
+                } else {
+                    if (intent.getStringExtra(MainActivity.DONE_KEY).equals(MainActivity.DONE_LOADING)) {
+                        try {
 
                             restartLoader();
 
 
+                        } catch (Exception e) {
 
-                    } catch (Exception e) {
-
+                        }
                     }
+                }
             }
         }
     }
