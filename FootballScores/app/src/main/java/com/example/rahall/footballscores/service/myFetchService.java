@@ -102,6 +102,7 @@ public class myFetchService extends IntentService
         {
             data_ok= false;
             Log.e(LOG_TAG,"Exception here" + e.getMessage());
+            return;
         }
         finally {
             if(m_connection != null)
@@ -146,6 +147,7 @@ public class myFetchService extends IntentService
         {
             Log.e(LOG_TAG,e.getMessage());
             data_ok = false;
+            return;
         }
     }
     private void processJSONdata (String JSONdata,Context mContext, boolean isReal)
@@ -269,6 +271,7 @@ public class myFetchService extends IntentService
                         data_ok = false;
                         Log.d(LOG_TAG, "error here!");
                         Log.e(LOG_TAG,e.getMessage());
+                        return;
                     }
 
 
@@ -315,9 +318,12 @@ public class myFetchService extends IntentService
         {
             data_ok = false;
             Log.e(LOG_TAG,e.getMessage());
+            return;
+
         } catch (Exception e) {
             Log.e(LOG_TAG,e.getMessage());
             data_ok = false;
+            return;
         }
 
     }
