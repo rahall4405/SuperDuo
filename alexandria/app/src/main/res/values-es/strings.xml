@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Alexandria</string>
+    <string name="books">Lista de libros</string>
+    <string name="about">Sobre esta Aplicación</string>
+    <string name="about_text">Esta aplicación obtiene la información del libro a partir de una Google API.  Todos los títulos, las imágenes, y la información del autor provienen de allí. La versión original de esta aplicación fue constuido por Sacha Jaschke, y una versión modificada se da a los estudiantes en el programa de Udacity Android Nanodegree.</string>
+    <string name="action_settings">La configuración</string>
+    <string name="action_share">Compartir</string>
+    <string name="book_cover">Sobrecubierta</string>
+    <string name="cancel_button">Cancelar</string>
+    <string name="delete">Eliminar libro</string>
+    <string name="empty_books_string">No hay libros en su colleción</string>
+    <string name="empty_string"></string>
+    <string name="input_hint">Insertar ISBN. Sólo digitos.</string>
+    <string name="network_error">¡Se ha producido un error en la red!  Por favor, compruebe la conexión de red y vuelve a intentarlo.</string>
+    <string name="no_autofocus">La cámera del dispositívo no es compatible con enfoque automático. Por favor introduza el ISBN.</string>
+    <string name="no_camera">EL or aparato no tiene una camara para escanear. Por favor introduza el ISBN.</string>
+    <string name="not_found">Encontró ningún libro</string>
+    <string name="ok_button">Próximo</string>
+    <string name="pref_startScreen">Selección de inicio</string>
+    <string name="scan">Escanear / Añandir un libro</string>
+    <string name="scan_button">Escasnear</string>
+    <string name="search">Buscar</string>
+    <string name="share_text">Un libro que debes leer</string>
+    <string name="title_activity_book_detail">Detalle del libro </string>
+    <string name="title_activity_scan_barcode">Escanear el código de barras</string>
+    <string name="title_activity_settings">Configuración</string>
+</resources>

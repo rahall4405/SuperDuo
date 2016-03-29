@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.rahall.alexandria">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        >
+        <activity
+            android:name="com.example.rahall.alexandria.MainActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.rahall.alexandria.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="com.example.rahall.alexandria.MainActivity"
+            android:theme="@style/SettingsTheme"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.rahall.alexandria.MainActivity" />
+        </activity>
+
+        <provider
+            android:name="com.example.rahall.alexandria.data.BookProvider"
+            android:authorities="com.example.rahall.alexandria"
+            android:exported="false" />
+
+        <service
+            android:name="com.example.rahall.alexandria.services.BookService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.rahall.alexandria.ScanBarcode"
+            android:label="@string/title_activity_scan_barcode"
+            android:title="Scan Barcode"
+            android:parentActivityName="com.example.rahall.alexandria.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name="com.example.rahall.alexandria.BookDetailActivity"
+            android:label="@string/title_activity_book_detail"
+            android:parentActivityName="com.example.rahall.alexandria.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.rahall.alexandria.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>
