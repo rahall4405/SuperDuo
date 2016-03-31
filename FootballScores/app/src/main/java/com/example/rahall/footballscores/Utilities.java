@@ -98,45 +98,7 @@ public class Utilities {
         }
     }
 
-    public static int getTeamCrestByTeamName (String teamname)
-    {
-        if (teamname==null){return R.drawable.no_icon;}
-        switch (teamname)
-        { //This is the set of icons that are currently in the app. Feel free to find and add more
-            //as you go.
-            case "Arsenal London FC" : return R.drawable.arsenal;
-            case "Manchester United FC" : return R.drawable.manchester_united;
-            case "Swansea City" : return R.drawable.swansea_city_afc;
-            case "Leicester City" : return R.drawable.leicester_city_fc_hd_logo;
-            case "Everton FC" : return R.drawable.everton_fc_logo1;
-            case "West Ham United FC" : return R.drawable.west_ham;
-            case "Tottenham Hotspur FC" : return R.drawable.tottenham_hotspur;
-            case "West Bromwich Albion" : return R.drawable.west_bromwich_albion_hd_logo;
-            case "Sunderland AFC" : return R.drawable.sunderland;
-            case "Stoke City FC" : return R.drawable.stoke_city;
-            case "RCD Espanyol" : return R.drawable.rcd_espanyol_de_barcelona;
-            case "SC Freiburg" : return R.drawable.sc_freiburg_logo_neu;
-            case "Karlsruher SC" : return R.drawable.karlsruher_sc_logo;
-            case "Sheffield United FC" : return R.drawable.sheffield_united_fc_logo;
-            case "Crewe Alexandra FC" : return R.drawable.crewe_alexandra;
-            case "Rochdale AFC" : return R.drawable.rochdale_badge;
-            case "Southend United FC" : return R.drawable.southend_united;
-            case "Colchester United FC" : return R.drawable.colchester_united_fc_logo;
-            case "Doncaster Rovers FC" : return R.drawable.doncaster_rovers;
-            case "Blackpool FC" : return R.drawable.blackpool_fc_logo;
-            case "Bury FC" : return R.drawable.bury_fc;
-            case "Barnsley FC" : return R.drawable.barnsley_fc;
-            case "Scunthorpe United FC" : return R.drawable.scunthorpe_united_fc_logo;
-            case "Shrewsbury Town FC" : return R.drawable.no_icon;
-            case "Port Vale FC" : return R.drawable.port_vale_logo;
-            case "Swindon Town FC" : return R.drawable.swindon_town_fc;
-            case "Wigan Athletic FC" : return R.drawable.wigan_athletic;
-            case "Peterborough United FC" : return R.drawable.peterborough_united;
-            case "Coventry City FC" : return R.drawable.coventry_city_fc_logo;
 
-            default: return R.drawable.no_icon;
-        }
-    }
     public static void showAlertDialog(String message, Context context) {
 
         new AlertDialog.Builder(context)
