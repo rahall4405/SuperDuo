@@ -23,8 +23,9 @@ The [Google Books API](https://developers.google.com/books) was used to retreive
 - The app was updated the App to material design.
 - Scanning functionality was added using the [ZBar](http://zbar.sourceforge.net) library.
 - Tablet layout was redone.
-- The navigation drawer was updated to material design.
 - [Glide](https://github.com/bumptech/glide) library was used to speed up image loading.
+- The navigation drawer was updated to material design.
+
 ### Installation
 Download the zip file and extract the contents.  From Android Studio, File - New  - Import Project. Then navigate to the top level of the Alexandria project and click Ok.  The project should work.
 
