@@ -62,6 +62,7 @@ The [football-data.org](https://api.football-data.org) API was used to retrieve 
 - A broadcast receive mechanism was added to inform the UI when football scores are updated.
 - [Glide](https://github.com/bumptech/glide) library was used to speed up image loading.
 - Added code to download Logos for each team in a match.  If storage is available, Android Download Manger is used to download the logos.  If storage is not available, the URL for the logo is stored.  
+
 ### Installation
 Download the zip file and extract the contents.  From Android Studio, File - New  - Import Project. Then navigate to the top level of the Football project and click Ok.
 An API Key needs to be downloaded from this link:[http://api.football-data.org/register] (http://api.football-data.org/register).
