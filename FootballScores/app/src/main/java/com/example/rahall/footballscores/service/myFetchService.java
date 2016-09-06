@@ -130,12 +130,12 @@ public class myFetchService extends IntentService
                 // This is to get the link to the team, we will use this to get emblems.
 
 
-                if (matches.length() == 0) {
+                /*if (matches.length() == 0) {
                     //if there is no data, call the function on dummy data
                     //this is expected behavior during the off season.
                     processJSONdata(getString(R.string.dummy_data), getApplicationContext(), false);
                     return;
-                }
+                }*/
 
 
                 processJSONdata(JSON_data, getApplicationContext(), true);
@@ -159,27 +159,28 @@ public class myFetchService extends IntentService
         // be updated. Feel free to use the codes
 
         //more leagues were added for data to be available.
-        final String BUNDESLIGA1 = "394";
-        final String BUNDESLIGA2 = "395";
-        final String LIGUE1 = "396";
-        final String LIGUE2 = "397";
-        final String PREMIER_LEAGUE = "398";
-        final String PRIMERA_DIVISION = "399";
+        final String BUNDESLIGA1 = "430";
+        final String BUNDESLIGA2 = "431";
+        final String LIGUE1 = "434";
+        final String LIGUE2 = "435";
+        final String PREMIER_LEAGUE = "426";
+        final String PRIMERA_DIVISION = "436";
         final String SEGUNDA_DIVISION = "400";
-        final String SERIE_A = "401";
-        final String PRIMERA_LIGA = "402";
+        final String SERIE_A = "438";
+        final String PRIMERA_LIGA = "439";
         final String Bundesliga3 = "403";
         final String EREDIVISIE = "404";
-        final String CHAMPIONS_LEAGUE = "405";
-        final String LEAGUE_ONE = "425";
+        final String CHAMPIONS_LEAGUE = "440";
+        final String LEAGUE_ONE = "428";
+
+        final String EURO_CHAMPIONSHIP = "425";
 
 
-
-        final String SEASON_LINK = "http://api.football-data.org/v1/soccerseasons/";
+        final String SEASON_LINK = "http://api.football-data.org/v1/competitions/";
         final String MATCH_LINK = "http://api.football-data.org/v1/fixtures/";
         final String FIXTURES = "fixtures";
         final String LINKS = "_links";
-        final String SOCCER_SEASON = "soccerseason";
+        final String COMPETITION = "competition";
 
         final String SELF = "self";
         final String MATCH_DATE = "date";
@@ -219,7 +220,7 @@ public class myFetchService extends IntentService
                 // add data for links to teams
 
                 JSONObject match_data = matches.getJSONObject(i);
-                League = match_data.getJSONObject(LINKS).getJSONObject(SOCCER_SEASON).
+                League = match_data.getJSONObject(LINKS).getJSONObject(COMPETITION).
                         getString("href");
                 League = League.replace(SEASON_LINK, "");
                 HomeTeamUrl = match_data.getJSONObject(LINKS).getJSONObject(HOME_TEAM_URL).
@@ -237,8 +238,9 @@ public class myFetchService extends IntentService
                         League.equals(BUNDESLIGA1)         ||
                         League.equals(BUNDESLIGA2)         ||
                         League.equals(PRIMERA_DIVISION)    ||
-                        League.equals(CHAMPIONS_LEAGUE)   ||
-                        League.equals(LEAGUE_ONE))
+                        League.equals(CHAMPIONS_LEAGUE)    ||
+                        League.equals(LEAGUE_ONE)) //         ||
+                       // League.equals("357"))
                 {
                     match_id = match_data.getJSONObject(LINKS).getJSONObject(SELF).
                             getString("href");
@@ -411,7 +413,7 @@ public class myFetchService extends IntentService
 
 
             }
-                if (Utilities.isExternalStorageAvailable() && crestUrlString != null) {
+                if (Utilities.isExternalStorageAvailable() && crestUrlString != null && crestUrlString != "null") {
                     Log.d("A_URL",crestUrlString + "   " + teamName);
                     Utilities.downloadImageFile(this,crestUrlString,teamName);
                     return Utilities.getApplicationDirectory() + "/image_files/" + teamName;
