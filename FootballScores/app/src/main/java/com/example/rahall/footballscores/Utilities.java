@@ -20,38 +20,43 @@ import java.text.SimpleDateFormat;
  * Created by rahall4405 on 3/13/16.
  */
 public class Utilities {
+    public static final int CHAMPIONSHIP = 426;
+    public static final int LEAGUE_ONE = 428;
+    public static final int BUNDESLIGA_1 = 430;
+    public static final int BUNDESLIGA_2 = 431;
+    public static final int DFB = 432;
+    public static final int DED = 433;
+    public static final int LIGUE_ONE = 434;
+    public static final int LIGUE_TWO = 435;
+    public static final int PRIMERA_DIVISION = 436;
+    public static final int SD = 437;
+    public static final int SERIE_A = 438;
+    public static final int PRIMEIRA_LIGA= 439;
+    public static final int CHAMPIONS_LEAGUE = 440;
 
-    public static final int SERIE_A = 401;
-    public static final int PREMIER_LEGAUE = 398;
-    public static final int PRIMERA_DIVISION = 399;
-    public static final int CHAMPIONS_LEAGUE = 405;
-    public static final int BUNDESLIGA = 394;
-    public static final int BUNDESLIGA_1 = 395;
-    public static final int LIGUE_ONE = 396;
-    public static final int LIGUE_TWO = 397;
-    public static final int SEGUNDA_DIVISION= 400;
-    public static final int PRIMEIRA_LIGA= 402;
-    public static final int BUNDESLIGA_2 = 403;
-    public static final int EREDIVISIE = 404;
-    public static final int LEAGUE_ONE = 425;
+
+
+
+
 
     public static String getLeague(int league_num)
     {
         switch (league_num)
         {
+            case CHAMPIONSHIP : return "Championship";
             case SERIE_A : return "Seria A";
-            case PREMIER_LEGAUE : return "Premier League";
+            case PRIMEIRA_LIGA: return "Premeira Liga";
             case CHAMPIONS_LEAGUE : return "UEFA Champions League";
             case PRIMERA_DIVISION : return "Primera Division";
-            case BUNDESLIGA : return "Bundesliga";
             case LIGUE_ONE : return "Ligue 1";
             case LIGUE_TWO : return "Ligue 2";
-            case SEGUNDA_DIVISION : return "Segunda Division";
-            case PRIMEIRA_LIGA : return "Primeira Liga";
-            case BUNDESLIGA_1 : return "Bundesliga";
-            case BUNDESLIGA_2 : return "Bundesliga";
-            case EREDIVISIE : return "Eredivisie";
+            case BUNDESLIGA_1 : return "Bundesliga 1";
+            case BUNDESLIGA_2 : return "Bundesliga 2";
             case LEAGUE_ONE : return "League One";
+            case DFB : return "DFB-Pokal";
+            case DED : return "Eredivisie 2016/17";
+            case SD : return "Liga Adelante";
+
 
             default: return "Not known League Please report";
         }

@@ -159,21 +159,22 @@ public class myFetchService extends IntentService
         // be updated. Feel free to use the codes
 
         //more leagues were added for data to be available.
+        final String PREMIER_LEAGUE = "426";
+        final String LEAGUE_ONE = "428";
         final String BUNDESLIGA1 = "430";
         final String BUNDESLIGA2 = "431";
+        final String DFB = "432";
+        final String DED = "432";
         final String LIGUE1 = "434";
         final String LIGUE2 = "435";
-        final String PREMIER_LEAGUE = "426";
         final String PRIMERA_DIVISION = "436";
-        final String SEGUNDA_DIVISION = "400";
+        final String SD = "437";
         final String SERIE_A = "438";
         final String PRIMERA_LIGA = "439";
-        final String Bundesliga3 = "403";
-        final String EREDIVISIE = "404";
         final String CHAMPIONS_LEAGUE = "440";
-        final String LEAGUE_ONE = "428";
 
-        final String EURO_CHAMPIONSHIP = "425";
+
+
 
 
         final String SEASON_LINK = "http://api.football-data.org/v1/competitions/";
@@ -234,13 +235,20 @@ public class myFetchService extends IntentService
                 // If you are finding no data in the app, check that this contains all the leagues.
                 // If it doesn't, that can cause an empty DB, bypassing the dummy data routine.
                 if(     League.equals(PREMIER_LEAGUE)      ||
-                        League.equals(SERIE_A)             ||
+                        League.equals(LEAGUE_ONE)          ||
                         League.equals(BUNDESLIGA1)         ||
                         League.equals(BUNDESLIGA2)         ||
+                        League.equals(DFB)                 ||
+                        League.equals(DED)                 ||
+                        League.equals(LIGUE1)              ||
+                        League.equals(LIGUE2)              ||
                         League.equals(PRIMERA_DIVISION)    ||
-                        League.equals(CHAMPIONS_LEAGUE)    ||
-                        League.equals(LEAGUE_ONE)) //         ||
-                       // League.equals("357"))
+                        League.equals(SD)                  ||
+                        League.equals(SERIE_A)             ||
+                        League.equals(PRIMERA_LIGA)                  ||
+                        League.equals(CHAMPIONS_LEAGUE))
+
+
                 {
                     match_id = match_data.getJSONObject(LINKS).getJSONObject(SELF).
                             getString("href");
