@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
  * Created by rahall4405 on 3/13/16.
  */
 public class Utilities {
-    public static final int CHAMPIONSHIP = 426;
+    public static final int PRIMIER_LEAGUE = 426;
     public static final int LEAGUE_ONE = 428;
     public static final int BUNDESLIGA_1 = 430;
     public static final int BUNDESLIGA_2 = 431;
@@ -43,7 +43,7 @@ public class Utilities {
     {
         switch (league_num)
         {
-            case CHAMPIONSHIP : return "Championship";
+            case PRIMIER_LEAGUE : return "Premier League";
             case SERIE_A : return "Seria A";
             case PRIMEIRA_LIGA: return "Premeira Liga";
             case CHAMPIONS_LEAGUE : return "UEFA Champions League";
